@@ -1,1 +1,71 @@
-Build a script or pipeline that can parse resumes (PDF format) and extract structured information.
+
+📄 AI Resume Parser
+A simple Streamlit web app that extracts key information from resumes (PDFs) using intelligent parsing and basic natural language techniques.
+
+
+🛠 Approach
+Text Extraction:
+Used pdfminer.six to extract raw text from PDFs. It ensures compatibility with text-based PDFs.
+
+Link Extraction:
+Used PyMuPDF (fitz) to parse embedded links (e.g., LinkedIn URLs) inside the PDF.
+
+Information Extraction:
+Used regular expressions (re) and custom parsing to extract:
+
+Name
+
+Email
+
+Phone Number
+
+LinkedIn Profile
+
+Skills (matches from a predefined list)
+
+Education (degree, institution, year)
+
+Experience (company, title, duration, description)
+
+Projects
+
+🧰 *Libraries/Tools Used*
+streamlit for 	Web app interface
+pdfminer.six	for Extracting raw text from PDFs
+PyMuPDF (fitz) for	Extracting embedded hyperlinks
+re (regex) for	Pattern matching for emails, phones, skills, etc.
+io for 	Handling file streams
+
+📋 Assumptions & Limitations
+Assumptions:
+
+The resume sections are labeled with headings like Education, Experience, Projects, etc.
+
+Skills are matched against a predefined static list.
+
+Names are assumed to be two words in Title Case (e.g., John Doe).
+
+LinkedIn profiles are either found in the text or as embedded links.
+
+Limitations:
+
+Image-based PDFs (scanned resumes) are not supported because no OCR (Optical Character Recognition) is integrated yet.
+
+Unstructured Resumes: Highly unorganized resumes may lead to imperfect extraction.
+
+Certifications Extraction: Currently not implemented. Certifications section returns null.
+
+Skills Detection: If skills are phrased unusually or misspelled, they might not be detected.
+
+Multi-page Complex Resumes: Currently focuses more on simple/medium-complexity resumes.
+
+🚀 Future Improvements (Ideas)
+Add OCR support for scanned PDFs using Tesseract.
+
+Train a small ML model for smarter skills and certifications extraction.
+
+Support more dynamic skill extraction beyond a static list.
+
+Improve handling of international date formats.
+
+Detect certifications like AWS, PMP, etc.
